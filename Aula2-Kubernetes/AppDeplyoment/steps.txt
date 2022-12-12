@@ -1,0 +1,2 @@
+ - Criar a imagem do projeto e subir o seu conteúdo para o DockerHub -> Fonte para execução do projeto no Kubernetes. 
+ - Configurações do servço do Kubernete

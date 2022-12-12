@@ -1,0 +1,11 @@
+Preparação para aplicação do projeto: 
+ > terraform init
+ 
+Aplicação de configuração
+ > terraform apply
+ 
+Destruição da infraestrutura: 
+ > terraform destroy
+ 
+Export somente os dados do output, definido: 
+terraform output

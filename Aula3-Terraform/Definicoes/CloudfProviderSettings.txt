@@ -1,0 +1,23 @@
+Kubernetes Cluster Configuration - DigitalOcean	
+
+Node pool name: 
+default
+
+Node plan: 
+$24/month per node ($0.036/hour)
+2.5 GB RAM usable (4GB Total) / 2 vCPUs
+
+Nodes:
+3
+
+
+[ Especificações das definições em terrafrom - main.tf ]
+
+
+
+Trabalho remoto: 
+Após a criação dos cluster, baixar o arquivo de configurações e copiar o arquivo para config (.kube)
+cp <origem-do-arquivo> <destino-arquivo>
+
+Exemplo: 
+$ cp ./kube_config.yaml ~/.kube/config

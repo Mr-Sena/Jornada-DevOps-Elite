@@ -1,0 +1,83 @@
+Kubernetes - Orquestrador de containers.
+
+ - Certificados: 
+  * CKA: Foco em Adminsitração do cluster
+  * CKAD: Certified Kubernetes Application Developer 
+  * CKS: Certified Kubernetes Security
+  
+
+
+
+  
+KeyWorkds: 
+
+ - Kubelet - Agent do cluster do Kubernete (Um para cada nó do cluster)
+
+ - ContainerEngine { 
+	Execução do container, Stoarge, NetWorking, 
+	Subir e derrubar o container, enfim, gerenciar, basicamente seu ciclo de vida.  
+
+ - ContainerRunTime: {
+	High Level: Muito similar ao containerEngine, porém não possui tantas funcionalidades. 
+	 * ContainerD (Utilizado pelo Docker)	
+	 * DockerD - Deamon CLI
+	 * CRI-O
+	Low level: RunC - Ferramenta CLI para gerar e executar contêineres de acordo com a especificação OCI. (Conversa diretamente com o Kernel do Linux)
+	
+
+
+ - O Control Plane do Kubernetes pode ser considerado o cérebro de um cluster. Ele é responsável por gerenciar os principais componentes do sistema e garantir que tudo está funcionando de acordo com o estado desejado da aplicação
+
+
+
+Pod: Menor unidade do kubernetes. 
+representa uma única instância de um processo em execução no seu cluster. Os pods contêm um ou mais contêineres, como os Docker. Quando um pod executa vários contêineres, eles são gerenciados como uma única entidade e compartilham os recursos do pod.
+
+
+
+
+
+
+
+
+
+Practices: 
+
+Criar namespace: 
+ > kubectl create namespace <spacename>
+
+Exemplo: 
+kubectl create namespace giropops
+
+
+
+Criação de um deployment em um determinado namespace (CLI): 
+ > kubectl create deployment <deploy-name> --image <Docker-image> --replicas <qtde-Replicas> -n <namespace-name>
+ 
+Exemplo: 
+kubectl create deployment strigus --image fabricioveronez/web-page:blue --replicas 3 -n giropops
+
+
+Simular a criação dess deployment e exibir sua estrutura em uma yaml: 
+Adicionar os parâmetros --dry-run=cliente, -o, yaml
+
+Exemplo:
+kubectl create deployment strigus --image fabricioveronez/web-page:blue --replicas 3 -n giropops --dry-run=client -o yaml
+ 
+Ainda é possível exportar a saída diretamente para o arquivo. Adicionar ao final < > nome-arquivo.yaml >
+
+Exemplo: 
+kubectl create deployment strigus --image fabricioveronez/web-page:blue --replicas 3 -n giropops --dry-run=client -o yaml > este-deployment.yaml
+
+ [ OBS: RECURSO DISPONÍVEL PARA NA CRIAÇÃO DE POD, SERVICE, ETC. ]
+ 
+Consultar os pods em todos namespace do node no cluster
+kubectl get pods -A
+
+
+
+É possível verificar todos os namespace de um cluster na consulta da descrição de um node: 
+ > kubectl describe node <cluster-name>
+
+Exemplo: 
+kubectl describe node k3d-muecluster-server-0

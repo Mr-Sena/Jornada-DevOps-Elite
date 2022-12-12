@@ -1,0 +1,3 @@
+Extrair o conteúdo do arquivo zip
+ > Definir um diretório para o arquivo do conteúdo
+ > Inserir o path do arquivo no diretório nas variáveis de ambiente.
